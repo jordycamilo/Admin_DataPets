@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vista de Citas</title>
+  <!-- Tailwind CSS y DaisyUI (requerido para estilos usados como "btn", "badge", etc.) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      plugins: [window.daisyui],
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/daisyui@latest"></script>
+</head>
+<body class="bg-gray-100 p-6">
+
+  <div class="container mx-auto">
+    <h1 class="text-2xl font-bold mb-4">Vista de Citas</h1>
+    
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <!-- Encabezado -->
+        <thead>
+          <tr>
+            <th><label><input type="checkbox" class="checkbox" /></label></th>
+            <th>Nombre</th>
+            <th>Trabajo</th>
+            <th>Color Favorito</th>
+            <th></th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <!-- Cita 1 -->
+          <tr>
+            <th><label><input type="checkbox" class="checkbox" /></label></th>
+            <td>
+              <div class="flex items-center gap-3">
+                <div class="avatar">
+                  <div class="mask mask-squircle h-12 w-12">
+                    <img src="https://img.daisyui.com/images/profile/demo/2@94.webp" alt="Avatar" />
+                  </div>
+                </div>
+                <div>
+                  <div class="font-bold">Hart Hagerty</div>
+                  <div class="text-sm opacity-50">Estados Unidos</div>
