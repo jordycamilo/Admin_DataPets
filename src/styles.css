@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Puedes dejar aquí tus estilos personalizados */
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
