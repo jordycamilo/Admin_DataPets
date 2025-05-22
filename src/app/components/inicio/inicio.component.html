@@ -1,1 +1,12 @@
-<p>inicio works!</p>
+<section class="contenedor2">
+  <h2 class="tituloServicios">Resumen</h2>
+  <p class="descServ">Vista general de estadísticas clave</p>
+
+  <div class="grid-container">
+    <app-card
+      *ngFor="let card of cards"
+      [titulo]="card.titulo"
+      [valor]="card.valor">
+    </app-card>
+  </div>
+</section>

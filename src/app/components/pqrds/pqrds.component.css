@@ -1,0 +1,29 @@
+.container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 26px;
+  color: #0082ca;
+}
+
+.table thead {
+  background-color: #f8f9fa;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+.badge {
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.btn i {
+  vertical-align: middle;
+}

@@ -1,0 +1,37 @@
+.admin-usuarios h2 {
+  font-weight: bold;
+  color: #0082ca;
+}
+
+.admin-usuarios input.form-control {
+  max-width: 300px;
+}
+
+.admin-usuarios .btn-primary {
+  background-color: #0082ca;
+  border-color: #0082ca;
+}
+
+.admin-usuarios .btn-primary:hover {
+  background-color: #006bb3;
+  border-color: #006bb3;
+}
+
+.admin-usuarios .table thead {
+  background-color: #cce9f9;
+}
+
+.admin-usuarios .btn-outline-primary {
+  color: #0082ca;
+  border-color: #0082ca;
+}
+
+.admin-usuarios .btn-outline-primary:hover {
+  background-color: #0082ca;
+  color: white;
+}
+
+.admin-usuarios .btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}

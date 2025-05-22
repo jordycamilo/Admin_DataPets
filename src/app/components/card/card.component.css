@@ -1,0 +1,24 @@
+.serv {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #00527e7c;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.serv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.serv h5 {
+  margin: 10px 0;
+  color: #006da7;
+}
+
+.fw-bold {
+  font-size: 1.2rem;
+  color: #555;
+  margin: 0;
+}

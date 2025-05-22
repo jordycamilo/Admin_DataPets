@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router'; // 👈 IMPORTANTE
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [RouterModule], // 👈 AÑADIR ESTO
   templateUrl: './header.component.html',
-standalone: true,
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
   menuAbierto = false;
 
-toggleDropdown(): void {
-  this.menuAbierto = !this.menuAbierto;
-}
+  toggleDropdown() {
+    this.menuAbierto = !this.menuAbierto;
+  }
 }

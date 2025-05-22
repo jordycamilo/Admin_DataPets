@@ -1,75 +1,67 @@
-.navbar {
-  background-color: #0082ca;
-  color: white;
+.navbar-custom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  font-family: Arial, sans-serif;
-  position: relative;
-  flex-wrap: wrap; /* hace que se ajuste en pantallas pequeñas */
+  background-color: white;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.navbar-start,
-.navbar-center,
-.navbar-end {
-  display: flex;
-  align-items: center;
-}
-
-.brand {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-}
-
-/* Menú hamburguesa */
 .menu-toggle {
-  font-size: 22px;
   background: none;
   border: none;
-  color: white;
   cursor: pointer;
 }
 
-/* Menú desplegable */
-.dropdown {
+.dropdown-menu-custom {
   position: absolute;
   top: 60px;
-  left: 10px;
-  background-color: #0082ca;
-  border: 1px solid #444;
-  border-radius: 6px;
+  left: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 0;
   list-style: none;
-  padding: 10px;
   margin: 0;
-  z-index: 100;
+  z-index: 1001;
+  width: 200px;
 }
 
-.dropdown li {
-  margin: 6px 0;
+.dropdown-menu-custom li {
+  padding: 0.5rem 1rem;
 }
 
-.dropdown a {
-  color: white;
+.dropdown-menu-custom li a {
+  display: flex;
+  align-items: center;
+  color: #0082ca;
   text-decoration: none;
-  padding: 6px;
-  display: block;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
 }
 
-.dropdown a:hover {
-  background-color: #3c4e66;
-  border-radius: 4px;
+.dropdown-menu-custom li a:hover {
+  background-color: #e6f4fc;
+  color: #005a95;
 }
 
-/* Iconos */
+.hidden {
+  display: none;
+}
+
+.navbar-center .brand-title {
+  font-weight: bold;
+  color: #0082ca;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
 .icon-button {
   background: none;
   border: none;
-  color: white;
-  font-size: 18px;
   margin-left: 10px;
   cursor: pointer;
   position: relative;
@@ -77,28 +69,10 @@
 
 .notification-dot {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 2px;
+  right: 2px;
   width: 8px;
   height: 8px;
   background-color: red;
   border-radius: 50%;
-}
-
-/* Ocultar menú */
-.hidden {
-  display: none;
-}
-
-/* Responsive: ocultar logo al reducir ancho */
-@media (max-width: 600px) {
-  .navbar-center {
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-  }
-}
-.active {
-  background-color: #3c4e66;
-  border-radius: 4px;
 }

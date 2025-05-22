@@ -1,47 +1,56 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vista de Citas</title>
-  <!-- Tailwind CSS y DaisyUI (requerido para estilos usados como "btn", "badge", etc.) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      plugins: [window.daisyui],
-    };
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/daisyui@latest"></script>
-</head>
-<body class="bg-gray-100 p-6">
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="fw-bold text-primary">Administrador de Citas</h2>
+      <p class="text-muted mb-0">Gestione sus citas de manera eficiente.</p>
+    </div>
+    <button class="btn btn-success">
+      <i class="bi bi-plus-lg me-1"></i> Nueva Cita
+    </button>
+  </div>
 
-  <div class="container mx-auto">
-    <h1 class="text-2xl font-bold mb-4">Vista de Citas</h1>
-    
-    <div class="overflow-x-auto">
-      <table class="table w-full">
-        <!-- Encabezado -->
-        <thead>
-          <tr>
-            <th><label><input type="checkbox" class="checkbox" /></label></th>
-            <th>Nombre</th>
-            <th>Trabajo</th>
-            <th>Color Favorito</th>
-            <th></th>
-          </tr>
-        </thead>
-        
-        <tbody>
-          <!-- Cita 1 -->
-          <tr>
-            <th><label><input type="checkbox" class="checkbox" /></label></th>
-            <td>
-              <div class="flex items-center gap-3">
-                <div class="avatar">
-                  <div class="mask mask-squircle h-12 w-12">
-                    <img src="https://img.daisyui.com/images/profile/demo/2@94.webp" alt="Avatar" />
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th scope="col"><input type="checkbox" /></th>
+              <th scope="col">Paciente</th>
+              <th scope="col">Servicio</th>
+              <th scope="col">Color Favorito</th>
+              <th scope="col">Fecha</th>
+              <th scope="col" class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <img src="https://img.daisyui.com/images/profile/demo/2@94.webp" alt="avatar"
+                       class="rounded-circle me-2" width="40" height="40">
+                  <div class="d-flex flex-column">
+                    <span class="fw-semibold">Hart Hagerty</span>
+                    <small class="text-muted">Estados Unidos</small>
                   </div>
                 </div>
-                <div>
-                  <div class="font-bold">Hart Hagerty</div>
-                  <div class="text-sm opacity-50">Estados Unidos</div>
+              </td>
+              <td>Consulta general</td>
+              <td><span class="badge bg-primary">Azul</span></td>
+              <td>23 mayo 2025</td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-outline-primary me-2" title="Editar">
+                  <i class="bi bi-pencil-fill"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" title="Eliminar">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

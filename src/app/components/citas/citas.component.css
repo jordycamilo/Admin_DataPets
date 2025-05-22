@@ -1,80 +1,39 @@
-/* Estructura general */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f3f4f6;
   margin: 0;
   padding: 20px;
 }
 
-.citas-container {
+.container {
   max-width: 1000px;
-  margin: auto;
-  background-color: white;
+  margin: 0 auto;
+  background-color: #fff;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.titulo-citas {
+h2 {
   color: #0082ca;
-  font-size: 24px;
-  margin-bottom: 20px;
 }
 
-/* Tabla */
-.tabla-responsive {
-  overflow-x: auto;
-}
-
-.tabla-citas {
+table {
   width: 100%;
-  border-collapse: collapse;
 }
 
-.tabla-citas th,
-.tabla-citas td {
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.table td,
+.table th {
+  vertical-align: middle;
 }
 
-.tabla-citas th {
-  background-color: #0082ca;
-  color: white;
+.badge {
+  font-size: 0.75rem;
+  padding: 4px 8px;
 }
 
-.tabla-citas tr:hover {
-  background-color: #f1f9ff;
-}
-
-/* Información secundaria */
-.pais {
-  font-size: 0.85em;
-  color: #666;
-}
-
-.puesto {
-  font-size: 0.8em;
-  background-color: #e0f0ff;
-  color: #0082ca;
-  padding: 2px 6px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-top: 4px;
-}
-
-/* Botón de detalles */
-.btn-detalles {
-  background-color: #0082ca;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.2s ease;
-}
-
-.btn-detalles:hover {
-  background-color: #006ba3;
+.btn-outline-primary,
+.btn-outline-danger {
+  padding: 4px 8px;
+  font-size: 0.85rem;
 }

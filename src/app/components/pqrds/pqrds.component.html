@@ -1,1 +1,48 @@
-<p>pqrds works!</p>
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="fw-bold text-primary">Gestión de PQRSD</h2>
+      <p class="text-muted mb-0">Administre las peticiones, quejas, reclamos, sugerencias y denuncias de los usuarios.</p>
+    </div>
+    <button class="btn btn-success">
+      <i class="bi bi-plus-lg me-1"></i> Nuevo PQRSD
+    </button>
+  </div>
+
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>ID</th>
+              <th>Usuario</th>
+              <th>Tipo</th>
+              <th>Descripción</th>
+              <th>Fecha</th>
+              <th class="text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#PQ1234</td>
+              <td>Laura Ramírez</td>
+              <td><span class="badge bg-warning text-dark">Queja</span></td>
+              <td>Demora en la atención médica para su mascota.</td>
+              <td>18 mayo 2025</td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-outline-primary me-2" title="Ver">
+                  <i class="bi bi-eye-fill"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" title="Eliminar">
+                  <i class="bi bi-trash-fill"></i>
+                </button>
+              </td>
+            </tr>
+            <!-- Más filas -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

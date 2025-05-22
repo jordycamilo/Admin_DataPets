@@ -1,29 +1,52 @@
-<nav class="navbar">
+<nav class="navbar-custom">
   <!-- Menú hamburguesa -->
   <div class="navbar-start">
-    <button class="menu-toggle" (click)="toggleDropdown()">
-      ☰
+    <button class="menu-toggle" (click)="toggleDropdown()" aria-label="Menú">
+      <i class="bi bi-list fs-3 text-primary"></i>
     </button>
-    <ul class="dropdown" [class.hidden]="!menuAbierto">
-      <li><a routerLink="/inicio" (click)="toggleDropdown()">Inicio</a></li>
-      <li><a routerLink="/citas" (click)="toggleDropdown()">Citas</a></li>
-      <li><a routerLink="/clientes" (click)="toggleDropdown()">Clientes</a></li>
-      <li><a routerLink="/contactar" (click)="toggleDropdown()">Contactar</a></li>
-      <li><a routerLink="/pqrds" (click)="toggleDropdown()">PQRDS</a></li>
-      
+
+    <ul class="dropdown-menu-custom" [class.hidden]="!menuAbierto">
+      <li>
+        <a routerLink="/inicio" (click)="toggleDropdown()">
+          <i class="bi bi-house-door-fill me-2 text-primary"></i>Inicio
+        </a>
+      </li>
+      <li>
+        <a routerLink="/citas" (click)="toggleDropdown()">
+          <i class="bi bi-calendar-check-fill me-2 text-primary"></i>Citas
+        </a>
+      </li>
+      <li>
+        <a routerLink="/clientes" (click)="toggleDropdown()">
+          <i class="bi bi-people-fill me-2 text-primary"></i>Clientes
+        </a>
+      </li>
+      <li>
+        <a routerLink="/usuarios" (click)="toggleDropdown()">
+          <i class="bi bi-person-gear me-2 text-primary"></i>Administrador de Usuarios
+        </a>
+      </li>
+      <li>
+        <a routerLink="/pqrds" (click)="toggleDropdown()">
+          <i class="bi bi-question-circle-fill me-2 text-primary"></i>PQRDS
+        </a>
+      </li>
     </ul>
   </div>
 
-  <!-- Logo o título -->
+  <!-- Título -->
   <div class="navbar-center">
-    <a href="#" class="brand">ADMINISTRADOR DATAPETS</a>
+    <span class="brand-title text-primary">ADMINISTRADOR DATAPETS</span>
   </div>
 
-  <!-- Iconos -->
+  <!-- Iconos a la derecha -->
   <div class="navbar-end">
-    <button class="icon-button">🔍</button>
-    <button class="icon-button">
-      🔔<span class="notification-dot"></span>
+    <button class="icon-button" aria-label="Buscar">
+      <i class="bi bi-search fs-5 text-primary"></i>
+    </button>
+    <button class="icon-button position-relative" aria-label="Notificaciones">
+      <i class="bi bi-bell fs-5 text-primary"></i>
+      <span class="notification-dot bg-primary"></span>
     </button>
   </div>
 </nav>
