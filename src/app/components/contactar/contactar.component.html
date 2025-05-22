@@ -1,1 +1,41 @@
-<p>contactar works!</p>
+<div class="overflow-x-auto">
+  <table class="table table-xs">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contacto of contactos; let i = index">
+        <td>{{ contacto.id }}</td>
+        <td>{{ contacto.name }}</td>
+        <td>{{ contacto.email }}</td>
+        <td>{{ contacto.phone }}</td>
+        <td>{{ contacto.message }}</td>
+        <td>{{ contacto.date }}</td>
+        <td>
+          <!-- Aquí están los botones de respuesta y eliminación -->
+          <button (click)="responderContacto(contacto.id)">Responder</button>
+          <button (click)="eliminarContacto(contacto.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

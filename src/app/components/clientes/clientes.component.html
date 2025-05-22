@@ -1,1 +1,44 @@
-<p>clientes works!</p>
+<div class="overflow-x-auto">
+  <table class="table table-xs">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Job</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Last Login</th>
+        <th>Favorite Color</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes; let i = index">
+        <td>{{ cliente.id }}</td>
+        <td>{{ cliente.name }}</td>
+        <td>{{ cliente.job }}</td>
+        <td>{{ cliente.company }}</td>
+        <td>{{ cliente.location }}</td>
+        <td>{{ cliente.lastLogin }}</td>
+        <td>{{ cliente.color }}</td>
+        <td>
+          <!-- Aquí están los botones de edición y eliminación -->
+          <button (click)="editarCliente(cliente.id)">Editar</button>
+          <button (click)="eliminarCliente(cliente.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Job</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Last Login</th>
+        <th>Favorite Color</th>
+        <th>Actions</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

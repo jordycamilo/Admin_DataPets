@@ -1,1 +1,33 @@
-<p>pqrds works!</p>
+<div class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100">
+  <table class="table">
+    <!-- Encabezado de la tabla -->
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Request</th>
+        <th>Response</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Iterar sobre la lista de PQR -->
+      <tr *ngFor="let pqr of pqrList; let i = index">
+        <td>{{ pqr.id }}</td>
+        <td>{{ pqr.name }}</td>
+        <td>{{ pqr.request }}</td>
+        <td>{{ pqr.response || 'No response yet' }}</td>
+        <td>
+          <!-- Botón para responder la PQR -->
+          <button (click)="enviarRespuesta(pqr.id)" class="btn btn-primary">Responder</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Área de respuesta -->
+<div class="response-area">
+  <label for="responseText">Escribe la respuesta:</label>
+  <textarea id="responseText" [(ngModel)]="responseText" rows="4" cols="50" placeholder="Escribe aquí la respuesta..."></textarea>
+</div>

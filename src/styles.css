@@ -1,6 +1,62 @@
-
-/* Puedes dejar aquí tus estilos personalizados */
+/* Estilos personalizados */
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+  position: relative; /* Para posicionar el pseudo-elemento correctamente */
+  background-color: #ffffff; /* Fondo blanco para el contenido */
+  overflow-x: hidden; /* Evita el desplazamiento horizontal si la imagen es grande */
+}
+
+/* Pseudo-elemento para la imagen de fondo */
+body::after {
+  content: ''; /* Hace que el pseudo-elemento sea visible */
+  position: absolute; /* Lo posiciona detrás del contenido */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://static.wixstatic.com/media/018ed8_b615abe426e14d82808cd66b16a40beb~mv2.png/v1/fill/w_640,h_1136,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/018ed8_b615abe426e14d82808cd66b16a40beb~mv2.png');
+  background-size: auto; /* La imagen no se redimensiona, se repite tal cual */
+  background-repeat: repeat; /* Hace que la imagen se repita en todo el fondo */
+  background-position: top left; /* Empieza desde la esquina superior izquierda */
+  opacity: 0.2; /* Ajusta la transparencia de la imagen */
+  z-index: -1; /* Coloca la imagen de fondo detrás del contenido */
+  width: 100%;
+  height: 100%;
+}
+
+/* Si deseas un contenedor con fondo blanco para el contenido */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+  border-radius: 10px;
+  z-index: 1; /* Asegura que el contenedor esté sobre el fondo */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  /* Ajustes para pantallas pequeñas */
+  body::after {
+    opacity: 0.3; /* Puedes ajustar la transparencia en pantallas pequeñas */
+  }
+
+  .container {
+    padding: 15px; /* Reduce el padding para pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajustes para pantallas extra pequeñas */
+  body::after {
+    opacity: 0.4; /* Aumenta la transparencia si lo prefieres */
+  }
+
+  .container {
+    padding: 10px; /* Reduce aún más el padding */
+  }
 }

@@ -1,22 +1,21 @@
 <nav class="navbar">
   <!-- Menú hamburguesa -->
   <div class="navbar-start">
-    <button class="menu-toggle" (click)="toggleDropdown()">
-      ☰
-    </button>
+    <button class="menu-toggle" (click)="toggleDropdown()">☰</button>
+
+    <!-- Menú desplegable, solo visible cuando menuAbierto es true -->
     <ul class="dropdown" [class.hidden]="!menuAbierto">
-      <li><a routerLink="/inicio" (click)="toggleDropdown()">Inicio</a></li>
-      <li><a routerLink="/citas" (click)="toggleDropdown()">Citas</a></li>
-      <li><a routerLink="/clientes" (click)="toggleDropdown()">Clientes</a></li>
-      <li><a routerLink="/contactar" (click)="toggleDropdown()">Contactar</a></li>
-      <li><a routerLink="/pqrds" (click)="toggleDropdown()">PQRDS</a></li>
-      
+      <li><a routerLink="/inicio" routerLinkActive="active" (click)="cerrarMenu()">Inicio</a></li>
+      <li><a routerLink="/citas" routerLinkActive="active" (click)="cerrarMenu()">Citas</a></li>
+      <li><a routerLink="/clientes" routerLinkActive="active" (click)="cerrarMenu()">Clientes</a></li>
+      <li><a routerLink="/contactar" routerLinkActive="active" (click)="cerrarMenu()">Contactar</a></li>
+      <li><a routerLink="/pqrds" routerLinkActive="active" (click)="cerrarMenu()">PQRDS</a></li>
     </ul>
   </div>
 
-  <!-- Logo o título -->
+  <!-- Logo -->
   <div class="navbar-center">
-    <a href="#" class="brand">ADMINISTRADOR DATAPETS</a>
+    <a class="brand">ADMINISTRADOR DATAPETS</a>
   </div>
 
   <!-- Iconos -->
