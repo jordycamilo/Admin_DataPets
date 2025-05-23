@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,6 +17,6 @@ export class HeaderComponent {
 
   // Método para cerrar el menú
   cerrarMenu(): void {
-    this.menuAbierto = false;
+    this.menuAbierto = true;
   }
 }
