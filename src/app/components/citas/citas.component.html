@@ -1,55 +1,90 @@
-<div class="container py-4">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-      <h2 class="fw-bold text-primary">Administrador de Citas</h2>
-      <p class="text-muted mb-0">Gestione sus citas de manera eficiente.</p>
-    </div>
-    <button class="btn btn-success">
-      <i class="bi bi-plus-lg me-1"></i> Nueva Cita
-    </button>
-  </div>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Administración de Citas</h2>
+  <button class="btn btn-primary" (click)="abrirModal()">Crear Cita</button>
+</div>
 
-  <div class="card shadow-sm border-0">
-    <div class="card-body p-0">
-      <div class="table-responsive">
-        <table class="table align-middle mb-0">
-          <thead class="table-light">
-            <tr>
-              <th scope="col"><input type="checkbox" /></th>
-              <th scope="col">Paciente</th>
-              <th scope="col">Servicio</th>
-              <th scope="col">Color Favorito</th>
-              <th scope="col">Fecha</th>
-              <th scope="col" class="text-center">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input type="checkbox" /></td>
-              <td>
-                <div class="d-flex align-items-center">
-                  <img src="https://img.daisyui.com/images/profile/demo/2@94.webp" alt="avatar"
-                       class="rounded-circle me-2" width="40" height="40">
-                  <div class="d-flex flex-column">
-                    <span class="fw-semibold">Hart Hagerty</span>
-                    <small class="text-muted">Estados Unidos</small>
-                  </div>
-                </div>
-              </td>
-              <td>Consulta general</td>
-              <td><span class="badge bg-primary">Azul</span></td>
-              <td>23 mayo 2025</td>
-              <td class="text-center">
-                <button class="btn btn-sm btn-outline-primary me-2" title="Editar">
-                  <i class="bi bi-pencil-fill"></i>
-                </button>
-                <button class="btn btn-sm btn-outline-danger" title="Eliminar">
-                  <i class="bi bi-trash-fill"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead class="table-primary">
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Nombre de Mascota</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="citas.length; else sinCitas">
+      <tr *ngFor="let cita of citas">
+        <td>{{ cita.id }}</td>
+        <td>{{ cita.cliente_nombre }}</td>
+        <td>{{ cita.nombre_mascota }}</td>
+        <td>{{ cita.fecha }}</td>
+        <td>{{ cita.hora }}</td>
+        <td>
+          <button class="btn btn-sm btn-warning me-2" (click)="abrirModal(cita)">Editar</button>
+          <button class="btn btn-sm btn-danger" (click)="eliminarCita(cita.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #sinCitas>
+  <tr>
+    <td colspan="6" class="text-center text-muted">No hay citas registradas.</td>
+  </tr>
+</ng-template>
+
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" id="citaModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ citaSeleccionada?.id ? 'Editar Cita' : 'Crear Cita' }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+         <div class="mb-3">
+           <label class="form-label">Cliente</label>
+            <select class="form-select" [(ngModel)]="citaSeleccionada.cliente_id" name="cliente_id">
+             <option [ngValue]="0" disabled>Seleccione un cliente</option>
+             <option *ngFor="let cliente of clientes" [ngValue]="cliente.id">{{ cliente.nombre }}</option>
+           </select>
+         </div>
+
+          <div class="mb-3">
+            <label class="form-label">Nombre de Mascota</label>
+            <input class="form-control" [(ngModel)]="citaSeleccionada.nombre_mascota" name="mascota" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Fecha</label>
+            <input type="date" class="form-control" [(ngModel)]="citaSeleccionada.fecha" name="fecha" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Hora</label>
+            <input type="time" class="form-control" [(ngModel)]="citaSeleccionada.hora" name="hora" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Motivo</label>
+            <input class="form-control" [(ngModel)]="citaSeleccionada.motivo" name="motivo" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select class="form-select" [(ngModel)]="citaSeleccionada.estado" name="estado">
+              <option value="pendiente">Pendiente</option>
+              <option value="confirmada">Confirmada</option>
+              <option value="cancelada">Cancelada</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-primary" (click)="guardarCita()">Guardar</button>
       </div>
     </div>
   </div>

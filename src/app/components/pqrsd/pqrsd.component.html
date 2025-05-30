@@ -1,0 +1,85 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Administración de PQRSD</h2>
+  <button class="btn btn-primary" (click)="abrirModal()">Crear</button>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Estado</th>
+        <th>Cliente</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="pqrsds.length; else sinDatos">
+      <tr *ngFor="let pqrsd of pqrsds">
+        <td>{{ pqrsd.id }}</td>
+        <td>{{ pqrsd.tipo }}</td>
+        <td>{{ pqrsd.descripcion }}</td>
+        <td>{{ pqrsd.estado }}</td>
+        <td>{{ pqrsd.cliente?.nombre }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2" (click)="abrirModal(pqrsd)">Editar</button>
+          <button class="btn btn-danger btn-sm"*ngIf="pqrsd.id !== undefined" (click)="eliminarPqrsd(pqrsd.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #sinDatos>
+  <tr><td colspan="6" class="text-center text-muted">No hay registros.</td></tr>
+</ng-template>
+
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" id="pqrsdModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ pqrsdSeleccionado.id ? 'Editar' : 'Crear' }} PQRSD</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Tipo</label>
+            <select class="form-select" [(ngModel)]="pqrsdSeleccionado.tipo" name="tipo">
+              <option value="Petición">Petición</option>
+              <option value="Queja">Queja</option>
+              <option value="Reclamo">Reclamo</option>
+              <option value="Sugerencia">Sugerencia</option>
+              <option value="Denuncia">Denuncia</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <textarea class="form-control" [(ngModel)]="pqrsdSeleccionado.descripcion" name="descripcion"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Estado</label>
+            <select class="form-select" [(ngModel)]="pqrsdSeleccionado.estado" name="estado">
+              <option value="Pendiente">Pendiente</option>
+              <option value="Resuelto">Resuelto</option>
+              <option value="Cerrado">Cerrado</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Cliente</label>
+            <select class="form-select" [(ngModel)]="pqrsdSeleccionado.cliente_id" name="cliente_id">
+              <option [ngValue]="0" disabled>Seleccione un cliente</option>
+              <option *ngFor="let cliente of clientes" [ngValue]="cliente.id">{{ cliente.nombre }}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-primary" (click)="guardarPqrsd()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

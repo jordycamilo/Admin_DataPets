@@ -1,52 +1,83 @@
-<section class="contenedor2">
-  <div class="container py-4">
-   <div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-      <h2 class="fw-bold text-primary">Administrar Clientes</h2>
-      <p class="text-muted mb-0">Gestione la información de sus clientes.</p>
-    </div>
-    <button class="btn btn-success">
-      <i class="bi bi-plus-lg me-1"></i> Nuevo Cliente
-    </button>
-  </div>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Gestión de Clientes</h2>
+  <button class="btn btn-primary" (click)="abrirModal()">Crear Cliente</button>
+</div>
 
-  <div class="card shadow-sm border-0">
-    <div class="card-body p-0">
-      <div class="table-responsive">
-        <table class="table table-hover align-middle mb-0">
-          <thead class="table-light">
-            <tr>
-              <th>Foto</th>
-              <th>Nombre</th>
-              <th>Email</th>
-              <th>Teléfono</th>
-              <th>Fecha Registro</th>
-              <th class="text-center">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle shadow-sm" width="48" height="48" alt="cliente" />
-              </td>
-              <td>Ana González</td>
-              <td>ana.com</td>
-              <td>+57 300 123 4567</td>
-              <td>10 abril 2025</td>
-              <td class="text-center">
-                <button class="btn btn-sm btn-outline-primary me-2" title="Editar">
-                  <i class="bi bi-pencil-fill"></i>
-                </button>
-                <button class="btn btn-sm btn-outline-danger" title="Eliminar">
-                  <i class="bi bi-trash-fill"></i>
-                </button>
-              </td>
-            </tr>
-            <!-- Más filas de clientes -->
-          </tbody>
-        </table>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead class="table-primary">
+      <tr>
+        <th>ID</th>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Fecha de Registro</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="clientes.length; else sinClientes">
+      <tr *ngFor="let cliente of clientes">
+        <td>{{ cliente.id }}</td>
+        <td>
+          <img *ngIf="cliente.foto" [src]="cliente.foto" class="img-thumbnail" style="max-width: 50px; max-height: 50px;" alt="Foto del cliente" />
+          <span *ngIf="!cliente.foto" class="text-muted">Sin foto</span>
+        </td>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.correo }}</td>
+        <td>{{ cliente.telefono || '-' }}</td>
+        <td>{{ cliente.created_at | date: 'short' }}</td>
+        <td>
+          <button class="btn btn-sm btn-warning me-2" (click)="editarCliente(cliente)">Editar</button>
+          <button class="btn btn-sm btn-danger" (click)="eliminarCliente(cliente.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #sinClientes>
+  <tr>
+    <td colspan="7" class="text-center text-muted">No hay clientes registrados.</td>
+  </tr>
+</ng-template>
+
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" id="clienteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ clienteSeleccionado?.id ? 'Editar Cliente' : 'Crear Cliente' }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #clienteForm="ngForm">
+          <div class="mb-3">
+            <label for="foto" class="form-label">Foto</label>
+            <input type="file" id="foto" (change)="onFileSelected($event)" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input id="nombre" name="nombre" [(ngModel)]="clienteSeleccionado.nombre" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="correo" class="form-label">Correo</label>
+            <input id="correo" name="correo" [(ngModel)]="clienteSeleccionado.correo" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input id="telefono" name="telefono" [(ngModel)]="clienteSeleccionado.telefono" class="form-control" />
+          </div>
+          <div class="mb-3" *ngIf="clienteSeleccionado.created_at">
+            <label class="form-label">Fecha de Registro</label>
+            <input class="form-control" [value]="clienteSeleccionado.created_at | date: 'short'" disabled />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button class="btn btn-primary" (click)="guardarCliente()">Guardar</button>
       </div>
     </div>
-   </div>
   </div>
-</section>
+</div>

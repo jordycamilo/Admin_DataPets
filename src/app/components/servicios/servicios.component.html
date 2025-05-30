@@ -1,0 +1,18 @@
+<div class="contenedor">
+  <h2>Servicios</h2>
+
+  <div class="tarjeta" *ngFor="let servicio of servicios">
+    <div *ngIf="!servicio.editando">
+      <h3>{{ servicio.nombre }}</h3>
+      <p>{{ servicio.descripcion }}</p>
+      <button (click)="editar(servicio)">Editar</button>
+    </div>
+
+    <div *ngIf="servicio.editando">
+      <input [(ngModel)]="servicio.nombre" placeholder="Nombre del servicio" />
+      <textarea [(ngModel)]="servicio.descripcion" placeholder="Descripción"></textarea>
+      <button (click)="guardar(servicio)">Guardar</button>
+      <button (click)="cancelar(servicio)">Cancelar</button>
+    </div>
+  </div>
+</div>
