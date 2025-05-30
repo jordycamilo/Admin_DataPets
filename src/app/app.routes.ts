@@ -7,6 +7,9 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { MascotasComponent } from './components/mascotas/mascotas.component';
 import { PqrsdComponent } from './components/pqrsd/pqrsd.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
+import { TerminosCondicionesComponent } from './components/terminos-condiciones/terminos-condiciones.component';
+import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
+import { ConfiguracionComponent } from './components/configuracion/configuracion.component';  
 
 export const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
@@ -17,7 +20,9 @@ export const routes: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'mascotas', component: MascotasComponent },
   { path: 'servicios', component: ServiciosComponent },
-
+  {path: 'terminos-condiciones', component: TerminosCondicionesComponent },
+  {path: 'quienes-somos', component: QuienesSomosComponent },
+  {path: 'configuracion', component: ConfiguracionComponent },
   { path: '**', redirectTo: 'inicio' },
 
 ];

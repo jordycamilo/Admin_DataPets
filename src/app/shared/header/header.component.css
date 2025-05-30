@@ -76,3 +76,84 @@
   background-color: red;
   border-radius: 50%;
 }
+.navbar-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.navbar-start, .navbar-center, .navbar-end {
+  display: flex;
+  align-items: center;
+}
+
+/* Contenedor relativo para posicionar el panel */
+.user-menu-container {
+  position: relative;
+}
+
+/* Botones sin estilos por defecto */
+.menu-toggle,
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Base para todos los dropdowns */
+.dropdown-menu-custom {
+  position: absolute;
+  top: 100%;
+  /* desplazado justo debajo del botón */
+  left: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  width: 200px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* Para el menú de usuario, alineamos a la derecha */
+.dropdown-menu-right {
+  left: auto;    /* desactivamos el left:0 */
+  right: 0;      /* lo pegamos al borde derecho del contenedor */
+}
+
+/* Oculta el dropdown */
+.hidden {
+  display: none;
+}
+
+/* Estilos de los items */
+.dropdown-menu-custom li a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu-custom li:last-child a {
+  border-bottom: none;
+}
+
+.dropdown-menu-custom li a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Título centrado */
+.brand-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}

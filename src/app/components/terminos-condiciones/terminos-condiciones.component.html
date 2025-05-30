@@ -1,0 +1,16 @@
+<div class="contenedor-terminos">
+  <h2>Términos y Condiciones</h2>
+
+  <div *ngIf="!editando">
+    <div class="texto-terminos" [innerText]="texto"></div>
+    <button (click)="editar()">Editar</button>
+  </div>
+
+  <div *ngIf="editando">
+    <textarea [(ngModel)]="texto" rows="15"></textarea>
+    <div class="botones">
+      <button (click)="guardar()">Guardar</button>
+      <button (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+</div>

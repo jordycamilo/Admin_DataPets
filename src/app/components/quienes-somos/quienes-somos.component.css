@@ -1,0 +1,124 @@
+.quienes-somos-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  /* sombra suave para destacarlo */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  padding: 1rem;
+}
+
+.modal-body {
+  background: #fff;
+}
+
+.member {
+  display: flex;
+}
+
+.member-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.member h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.member p {
+  margin: 0.25rem 0;
+  line-height: 1.4;
+}
+
+.mb-5 {
+  margin-bottom: 2rem !important;
+}
+
+.me-4 {
+  margin-right: 1rem !important;
+}
+
+.ms-4 {
+  margin-left: 1rem !important;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+.quienes-somos-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+  padding: 1rem;
+}
+
+.modal-body {
+  background: #fff;
+}
+
+.member {
+  display: flex;
+}
+
+.member-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.mb-5 {
+  margin-bottom: 2rem !important;
+}
+
+.me-4 {
+  margin-right: 1rem !important;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+/* Estilos botones y formularios */
+button {
+  margin-right: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #0082ca;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #006ba1;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

@@ -1,0 +1,58 @@
+.config-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Arial, sans-serif;
+}
+
+.config-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.config-item label {
+  flex: 0 0 120px;
+}
+
+.config-item select,
+.config-item button,
+.config-item input {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+}
+
+.botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.botones button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #0082ca;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botones button:hover {
+  background-color: #006ba1;
+}
+
+/* Temas */
+:root.light-theme {
+  --bg: #fff;
+  --fg: #000;
+}
+
+:root.dark-theme {
+  --bg: #1e1e1e;
+  --fg: #f0f0f0;
+}

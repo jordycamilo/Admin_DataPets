@@ -1,56 +1,43 @@
 <nav class="navbar-custom">
-  <!-- Menú hamburguesa -->
+  <!-- Izquierda: menú hamburguesa principal -->
   <div class="navbar-start">
     <button class="menu-toggle" (click)="toggleDropdown()" aria-label="Menú">
       <i class="bi bi-list fs-3 text-primary"></i>
     </button>
-
     <ul class="dropdown-menu-custom" [class.hidden]="!menuAbierto">
-      <li>
-        <a routerLink="/inicio" (click)="toggleDropdown()">
-          <i class="bi bi-house-door-fill me-2 text-primary"></i>Inicio
-        </a>
-      </li>
-      <li>
-        <a routerLink="/citas" (click)="toggleDropdown()">
-          <i class="bi bi-calendar-check-fill me-2 text-primary"></i>Citas
-        </a>
-      </li>
-      <li>
-        <a routerLink="/clientes" (click)="toggleDropdown()">
-          <i class="bi bi-people-fill me-2 text-primary"></i>Clientes
-        </a>
-      </li>
-      <li>
-        <a routerLink="/usuarios" (click)="toggleDropdown()">
-          <i class="bi bi-person-gear me-2 text-primary"></i>Administrador de Usuarios
-        </a>
-      </li>
-      <li>
-        <a routerLink="/pqrsd" (click)="toggleDropdown()">
-          <i class="bi bi-question-circle-fill me-2 text-primary"></i>PQRDS
-        </a>
-      </li>
-      <li>
-        <a routerLink="/mascotas" (click)="toggleDropdown()">
-          <i class="bi bi-paw-fill me-2 text-primary"></i>Mascotas
-        </a>
+      <li><a routerLink="/inicio" (click)="toggleDropdown()"><i class="bi bi-house-door-fill me-2 text-primary"></i>Inicio</a></li>
+      <li><a routerLink="/citas" (click)="toggleDropdown()"><i class="bi bi-calendar-check-fill me-2 text-primary"></i>Citas</a></li>
+      <li><a routerLink="/clientes" (click)="toggleDropdown()"><i class="bi bi-people-fill me-2 text-primary"></i>Clientes</a></li>
+      <li><a routerLink="/usuarios" (click)="toggleDropdown()"><i class="bi bi-person-gear me-2 text-primary"></i>Administrador de Usuarios</a></li>
+      <li><a routerLink="/pqrsd" (click)="toggleDropdown()"><i class="bi bi-question-circle-fill me-2 text-primary"></i>PQRDS</a></li>
+      <li><a routerLink="/mascotas" (click)="toggleDropdown()"><i class="bi bi-paw-fill me-2 text-primary"></i>Mascotas</a></li>
+      <li><a routerLink="/servicios" (click)="toggleDropdown()"><i class="bi bi-paw-fill me-2 text-primary"></i>Servicios</a></li>
     </ul>
   </div>
 
-  <!-- Título -->
+  <!-- Centro: título -->
   <div class="navbar-center">
     <span class="brand-title text-primary">ADMINISTRADOR DATAPETS</span>
   </div>
 
-  <!-- Iconos a la derecha -->
+  <!-- Derecha: búsqueda + menú de usuario -->
   <div class="navbar-end">
     <button class="icon-button" aria-label="Buscar">
       <i class="bi bi-search fs-5 text-primary"></i>
     </button>
-    <button class="icon-button position-relative" aria-label="Notificaciones">
-      <i class="bi bi-bell fs-5 text-primary"></i>
-      <span class="notification-dot bg-primary"></span>
-    </button>
+
+    <div class="position-relative">
+      <button class="icon-button" (click)="toggleUserMenu()" aria-label="Menú de Usuario">
+        <i class="bi bi-list fs-5 text-primary"></i>
+      </button>
+      <ul class="dropdown-menu-custom dropdown-menu-right" [class.hidden]="!userMenuAbierto">
+        <li><a routerLink="/configuracion" (click)="toggleUserMenu()"><i class="bi bi-gear-fill me-2 text-primary"></i>Configuración</a></li>
+        <li><a routerLink="/politicas-seguridad" (click)="toggleUserMenu()"><i class="bi bi-shield-lock-fill me-2 text-primary"></i>Políticas y Seguridad</a></li>
+        <li><a routerLink="/terminos-condiciones" (click)="toggleUserMenu()"><i class="bi bi-file-earmark-text-fill me-2 text-primary"></i>Términos y Condiciones</a></li>
+        <li><a routerLink="/contactenos" (click)="toggleUserMenu()"><i class="bi bi-envelope-fill me-2 text-primary"></i>Contáctenos</a></li>
+        <li><a routerLink="/quienes-somos" (click)="toggleUserMenu()"><i class="bi bi-info-circle-fill me-2 text-primary"></i>Quiénes Somos</a></li>
+        <li><a routerLink="/cerrar-sesion" (click)="toggleUserMenu()"><i class="bi bi-box-arrow-right me-2 text-primary"></i>Cerrar Sesión</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
